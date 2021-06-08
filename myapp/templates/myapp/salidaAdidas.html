@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salida Adidas</title>
+    <style>
+        .tabla{
+            font-size: 25px;
+            margin-left: 30px;
+            background-color: rgba(8, 83, 156, 0.75);
+            
+        }
+    </style> 
+</head>
+
+<body>
+    <table style="border: 1px solid" class="tabla">
+        <thead>
+            <tr>
+                <th> Articulo </th>
+                <th> Talle </th>
+
+            </tr>
+        </thead>
+
+        {% for zap in zapatillas %}
+        <tr>
+            <td> {{ zap.articulo }} </td>
+            <td> {{ zap.talle }} </td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d Card Effect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href='{% static "myapp/styles.css" %}'>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="sneaker">
+                <!-- 0.  Agregamos el circuilo que estara debajo de la imagen -->
+                <div class="circle"></div>
+                <!-- 0.1 Agregamos la zapilla que se visualizara arriba del circulo -->
+                <!--<img src="img/adidas.png" alt="adidas">-->
+                <img src='{% static "myapp/adidas.png" %}' alt="adidas">
+            </div>
+            <div class="info">
+                <!-- 1. Agregamos el nombre del producto -->
+                <h1 class="title" name="title" id="">Adidas ZX</h1>
+                <!-- 2. Agregamos la descripcion del producto -->
+                <h3>FUTURE-READY TRAINERS WITH WRAPPED BOOST FOR EXCEPTION CONFORT.</h3>
+                <!-- 3. Agregamos los botones para elegir los tamaños de las zapatillas -->
+                <div class="sizes">
+
+
+                    <button type="submit" value="39" onclick="addToField('39', 'input1')">39</button>
+                    <button type="submit" value="40" onclick="addToField('40', 'input2')">40</button>
+                    <button type="submit" value="42" onclick="addToField('42', 'input3')">42</button>
+                    <button type="submit" value="44" onclick="addToField('44', 'input4')">44</button>
+
+                
+                </div>
+                <!-- 5. Agregamos el boton de compra -->
+                <div class="purchase">
+
+                    <form action="{% url 'compraZapatillas' %}" method="post" >
+                        {% csrf_token %}
+                        <input type="text" placeholder="39" name=boton1 hidden id="input1"> 
+                        <input type="text" placeholder="40" name=boton2 hidden id="input2">
+                        <input type="text" placeholder="41" name=boton3 hidden id="input3">
+                        <input type="text" placeholder="42" name=boton4 hidden id="input4">
+                        <button type="submit">Purchase</button>
+                    </form>
+
+                    <form action="{% url 'salidaAdidas' %}" method="post" >
+                        {% csrf_token %}
+                        
+                        <input id="listaCompleta" class="listaCompleta" type="submit" value="Lista Completa"></button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+    <script>
+
+        function addToField(c, input) {
+            document.getElementById(inpu1).value = '';
+            document.getElementById(inpu2).value = '';
+            document.getElementById(inpu3).value = '';
+            document.getElementById(inpu4).value = '';
+            document.getElementById(input).value = c;
+        };
+    </script>
+
+    <script src='{% static "myapp/script.js" %}'></script>
+</body>
+
+</html>

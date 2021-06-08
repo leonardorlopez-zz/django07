@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* 1. Agregamos todo el tamaño del body (viewport-height) */
+  min-height: 100vh;
+  display: flex;
+  /* 2. Mueve la imagen para el centro pero alineado 
+      a la izquierda por defecto */
+  align-items: center;
+  /* 3. Lo ponemos en el centro del body, separandose del margen izq */
+  justify-content: center;
+  perspective: 1000px;
+}
+
+/* 4. Caja Principal */
+.container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: lightpink; */
+}
+
+.listaCompleta {
+  width: 30%;
+  padding: 1rem 0rem;
+  background:  rgba(8, 83, 156, 0.75);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 30px;
+  font-weight: bolder;
+  margin-bottom: 2rem;
+}
+
+/* 5. Caja card : es donde estara afectada la animacion */
+.card {
+  transform-style: preserve-3d;
+  min-height: 80vh;
+  width: 35rem;
+  /* 6. Le damos una sombra a card "ejeX ejeY blur color , le agregamos dos bordes*/
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  padding: 0rem 5rem;
+}
+
+/* 9. Contenedor de la imagen */
+.sneaker {
+  /* 10. Le damos una altura a la imagen para que baje un poco el texto debajo */
+  min-height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 7. Trabajamos sobre la imagen */
+.sneaker img {
+  /* 8. Hacemos mas pequeña la imagen */
+  width: 20rem;
+  /* 16. Ubicamos la imagen de la zapatilla en forma de 3D en segundo lugar (despues del circulo) */
+  z-index: 2;
+  /* 17. Logrando el efecto de la zapatilla arriba del circulo */
+  transition: all 0.75s ease-out;
+}
+
+/* 11. Trabajamos sobre el circulo que va debajo de la imagen*/
+.circle {
+  width: 15rem;
+  height: 15rem;
+  /* 12. Con el linear-gradient se dibuja la imagen debajo de la 
+      imagen que luego sera el circulo */
+  background: linear-gradient(
+    to right,
+    rgba(245, 70, 66, 0.75),
+    rgba(8, 83, 156, 0.75)
+  );
+  /* 13. Lo que queremos ubicar el circulo en forma absoluta detras de la zapatilla */
+  position: absolute;
+  /* 14. Con border-radius le damos el efecto de circulo */
+  border-radius: 50%;
+  /* 15. Ubicamos 3D en el ejeZ al circulo en primer lugar */
+  z-index: 1;
+}
+
+/* 18. Seccion de la informacion */
+.info h1 {
+  /* 19. Agrandamos el tamaño del texto "Adidas ZX" */
+  font-size: 3rem;
+  transition: all 0.75s ease-out;
+}
+
+.info h3 {
+  /* 20. Agrandamos el tamaño del titulo h3 
+      FUTURE-READY TRAINERS WITH WRAPPED BOOST FOR EXCEPTION CONFORT. */
+  font-size: 1.3rem;
+  padding: 2rem 0rem;
+  color: #585858;
+  font-weight: lighter;
+  transition: all 0.75s ease-out;
+}
+
+/* 21. Estilizamos los tamaños de zapatilla */
+.sizes {
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.75s ease-out;
+}
+
+/* 22. Estilizamos el boton de los tamaños */
+.sizes button {
+  padding: 0.5rem 2rem;
+  /* 23. Le sacamos el color de fondo a los botones de los tamaños */
+  background: none;
+  border: none;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  /* 24. Hacemos cambiar el cursor del mousse */
+  cursor: pointer;
+  font-weight: bord;
+  color: #585858;
+}
+
+/* 23. Estilizamos el boton por defecto con el talle 42 que vera el usuario al inicio */
+button.active {
+  background: #585858;
+  color: white;
+}
+
+/* 24. Boton final de compra */
+.purchase {
+  margin-top: 5rem;
+  transition: all 0.75s ease-out;
+}
+
+/* 25. Y algunos estilos finales para dicho boton final */
+.purchase button {
+  width: 100%;
+  padding: 1rem 0rem;
+  background: #f54642;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 30px;
+  font-weight: bolder;
+  margin-bottom: 2rem;
+}
